@@ -1,0 +1,83 @@
+﻿body {
+    font-family: 'Josefin Sans', sans-serif;
+    background: url('images/depositphotos_36016035-stock-photo-snow-texture-macro.jpg');
+    /*background-color:ghostwhite;*/
+}
+
+#headerTop {
+    height: 29px;
+}
+    #headerTop .login {
+        padding: 0;
+        border: none;
+        background: none;
+    }
+
+    #headerTop .loginFrm {
+        margin-bottom: 8px;
+    }
+
+        #headerTop .loginFrm .control-group {
+            padding: 8px 14px 0;
+            margin-bottom: 0
+        }
+
+
+/*#headerWrap { 
+    background: url('../../images/2144.jpg') no-repeat center top;
+    margin-top: -10px;
+    padding-top: 80px;
+    text-align: center;
+    background-attachment: fixed;
+    background-position: center center;
+    min-height: 100px;
+    width: 100%;
+    background-size: cover;
+    border-bottom: 12px;
+}*/
+#brand {
+    /*font-family: 'Indie Flower', cursive;*/
+    font-size: 25px;
+    color: brown;
+    text-decoration: double;
+}
+
+@media (min-width: 1000px) {
+    .navbar {
+        height: 37px;
+    }
+}
+
+.carousel-item {
+    height: 35vh;
+    min-height: 200px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/*ErrorStyles*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+/*ErrorStylesEnd*/

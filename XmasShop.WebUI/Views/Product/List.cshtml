@@ -1,0 +1,47 @@
+﻿@using XmasShop.WebUI.Models
+@model ProductsListViewModel
+@using XmasShop.WebUI.HtmlHelpers
+@*Необходимо использовать using SportsStore.WebUI.HtmlHelpers, чтобы расширенный вспомогательный метод html был доступен в представлении
+    либо добавить пространство имент в область видимости в Views/Web.config*@
+@{
+    if (ViewBag.IsPartial != null)
+    {
+        Layout = null;
+    }
+}
+@{
+    ViewBag.Title = "Products";
+}
+<div class="card rounded-0">
+
+    @if (Model.CurrentCategory != null)
+    { <h5 class="card-header">@Model.CurrentCategory</h5>
+    }else
+    {<h5 class="card-header">Our Product</h5>
+    }
+
+    <div class="card-body">
+
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+        <div class="container">
+            <div class="row">
+                @foreach (var p in Model.Products)
+                {
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        @Html.Partial("ProductSummary", p)
+                    </div>
+                }
+            </div>
+            <div class="row justify-content-center">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <div class="btn-group">
+                            @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x, category = Model.CurrentCategory }))
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>

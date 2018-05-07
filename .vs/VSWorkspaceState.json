@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\SportsStore.WebUI",
+    "\\SportsStore.WebUI\\Content",
+    "\\SportsStore.WebUI\\Content\\bootstrap_temp\\css",
+    "\\SportsStore.WebUI\\Content\\bootstrap_temp\\vendor",
+    "\\SportsStore.WebUI\\Content\\bootstrap_temp\\vendor\\bootstrap",
+    "\\SportsStore.WebUI\\Controllers",
+    "\\SportsStore.WebUI\\Views",
+    "\\SportsStore.WebUI\\Views\\Shared"
+  ],
+  "SelectedNode": "\\SportsStore.WebUI\\Content\\bootstrap_temp",
+  "PreviewInSolutionExplorer": false
+}

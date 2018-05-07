@@ -1,0 +1,47 @@
+﻿@model XmasShop.Domain.Entities.Product
+<div class="card h-100 wow flipInX rounded-0">
+    @if (Model.ImageData != null)
+    {
+        <a href="#"><img class="card-img-top" src="@Url.Action("GetImage", "Product", new { Model.ProductID })" alt=""></a>
+    }
+    <div class="card-body">
+        <h4 class="card-title">
+            <a href="#">@Model.Name</a>
+        </h4>
+        <h5>@Model.Price.ToString("c")</h5>
+        <p class="card-text">
+            @Model.Description
+        </p>
+    </div>
+    <div class="card-footer">
+        <div class="row">
+            <div class="col">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+            </div>
+            <div class="col">
+                @*Add by ajax*@
+                <div class="pull-right">
+                    @Ajax.RouteLink("Add to cart", new
+               {
+                   controller = "Cart",
+                   action = "AddToCart",
+                   productId = Model.ProductID,
+                   //cart = Request.RequestContext.HttpContext.Session["Cart"]
+               },
+                new AjaxOptions { UpdateTargetId = "chekout" },
+                new { @class = "btn btn-success rounded-0" }
+                )
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("div.card.h-100").hover(function () {
+        $(this).addClass("border border-primary");
+    }, function () {
+        $(this).removeClass("border border-primary");
+    });
+</script>
+

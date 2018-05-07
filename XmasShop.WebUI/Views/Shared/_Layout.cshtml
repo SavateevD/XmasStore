@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Bootstrap 4-->
+    <link href="~/Content/bootstrap_temp/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap_temp/css/xmas-shop.css" rel="stylesheet" />
+    <link href="~/Content/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Josefin+Sans" rel="stylesheet">
+    <link href="~/Scripts/wowjs/animate.min.css" rel="stylesheet" />
+    <link href="~/Content/css/xmas-shop.css?v=@DateTime.Now.Millisecond" rel="stylesheet" />
+
+    <script src="~/Scripts/wowjs/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header>
+
+        <div id="headerTop" class="row bg-light">
+            <div class="col-6 text-center">
+                <h3>
+                    <a href="#" class="text-dark"><i class="fab fa-windows"></i></a>
+                    <a href="#" class="text-dark"><i class="fab fa-twitter-square"></i></a>
+                    <a href="#" class="text-dark"><i class="fab fa-facebook"></i></a>
+                    <a href="https://github.com/SavateevD?tab=repositories" class="text-dark"><i class="fab fa-github"></i></a>
+                </h3>
+            </div>
+            <div class="col-6 text-right">
+                <div class="login mr-4 mt-1">
+                    <a class="dropdown text-dark" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Login
+                    </a>
+                    <div class="dropdown-menu">
+                        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "form-horizontal m-1 border border-1" }))
+                        {
+                            <label>Login</label>
+                            @Html.TextBox("UserName", "Admin", new { @class = "form-control control-group" })
+                            <label>Password</label>
+                            @Html.Password("Password", "Admin", new { @class = "form-control control-group" })
+
+                            <span>Remember me @Html.CheckBox("Remember me", false, new { @class = " control-group" })</span>
+                            
+
+                            <button type="submit" class="shopBtn btn-block">Sign in</button>
+
+
+                        }
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div id="carouselExampleIndicators" class="carousel slide d-none d-lg-block" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <!-- Slide One - Set the background image for this slide in the line below -->
+                <div class="carousel-item active" style="background-image: url('../../Content/images/photo-1450460528890-4f75f19af897.jpg')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Christmas will always be as long as we stand heart to heart and hand in hand.</h3>
+                        <p>Dr. Seuss</p>
+                    </div>
+                </div>
+                <!-- Slide Two - Set the background image for this slide in the line below -->
+                <div class="carousel-item" style="background-image: url('../../Content/images/photo-1482094811064-3a0298572870.jpg')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Christmas is the season for kindling the fire of hospitality.</h3>
+                        <p>Washington Irving</p>
+                    </div>
+                </div>
+                <!-- Slide Three - Set the background image for this slide in the line below -->
+                <div class="carousel-item" style="background-image: url('../../Content/images/photo-1482097623218-813ddc8d7046.jpg')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Christmas is doing a little something extra for someone.</h3>
+                        <p>Charles M. Schulz</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </header>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top border-bottom border">
+        <a class="navbar-brand" href="#"><div class="font-weight-bold" id="brand">XMAS STORE</div></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                </li>
+            </ul>
+            @Html.Action("Summary", "Cart")
+        </div>
+    </nav>
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-lg-3">
+                <div class="list-group data-nav mb-4 ">
+                    @Html.Action("Menu", "Nav")
+                </div>
+                <img src="~/Content/images/de33af5deb444f58f3420acfb716a563-christmas-santa-greeting-card-maker.jpg" class="img-fluid wow jackInTheBox d-none d-lg-block" title="HO HO HO!" alt="Responsive image">
+                <!-- Contact \ Embedded Google Map -->
+                <div class="card rounded-0 d-none d-lg-block">
+                    <h5 class="card-header">Contact Details</h5>
+                    <div class="card-body">
+                        <p>
+                            Santa Claus Main Post Office
+                            <br>FI-96930 Arctic Circle
+                            <br>Lapland, Finland
+                            <br>
+                        </p>
+                        <p>
+                            <abbr title="Phone">P</abbr>: 8 (915) 387-08-27
+                        </p>
+                        <p>
+                            <abbr title="Email">E</abbr>:
+                            <a href="mailto:mister.savateev@gmail.com">
+                                mister.savateev@gmail
+                            </a>
+                        </p>
+                        <p>
+                            <abbr title="Hours">H</abbr>: Monday - Friday: 9:00 AM to 5:00 PM
+                        </p>
+                        <iframe width="100%" height="200px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1550669.740668759!2d25.729533542075!3d66.28943175295784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x442b4e7fc37edcad%3A0xd701fa06de6e68e1!2zSm91bHVwdWtpbiBww6TDpHBvc3Rp!5e0!3m2!1sfi!2sfi!4v1508330455382"></iframe>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-lg-2 -->
+            <div class="col-lg-9">
+                <div class="row" id="main-row">
+                    <img class="mx-auto my-auto" style="display:none" id="loadingIcon" src="~/Content/images/index.dual-ring-loader.gif" />
+                    @RenderBody()
+                </div>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+    <footer class="py-4 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; My Website 2017</p>
+        </div>
+    </footer>
+    <script src="~/Content/bootstrap_temp/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Content/bootstrap_temp/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/fontawesome-all.min.js"></script>
+    <script>
+        $("div.card.h-100").hover(function () {
+            $(this).addClass("border border-primary");
+        }, function () {
+            $(this).removeClass("border border-primary");
+        });
+    </script>
+</body>
+</html>
