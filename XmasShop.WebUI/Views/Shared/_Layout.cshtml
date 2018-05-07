@@ -3,24 +3,21 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!--Bootstrap 4-->
-    <link href="~/Content/bootstrap_temp/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/bootstrap_temp/css/xmas-shop.css" rel="stylesheet" />
-    <link href="~/Content/css/fontawesome-all.min.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+    <!--Bootstrap 4 and etc-->
+    @Styles.Render("~/bundleContent")
+    @*<link href="~/Content/bootstrap_temp/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/css/xmas-shop.css?v=@DateTime.Now.Millisecond" rel="stylesheet" />
+        <link href="~/Content/css/fontawesome-all.min.css" rel="stylesheet" />
+        <link href="~/Scripts/wowjs/animate.min.css" rel="stylesheet" />*@
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Josefin+Sans" rel="stylesheet">
-    <link href="~/Scripts/wowjs/animate.min.css" rel="stylesheet" />
-    <link href="~/Content/css/xmas-shop.css?v=@DateTime.Now.Millisecond" rel="stylesheet" />
-
     <script src="~/Scripts/wowjs/wow.min.js"></script>
     <script>
         new WOW().init();
     </script>
-    <title>@ViewBag.Title</title>
 </head>
 <body>
     <header>
-
         <div id="headerTop" class="row bg-light">
             <div class="col-6 text-center">
                 <h3>
@@ -42,24 +39,13 @@
                             @Html.TextBox("UserName", "Admin", new { @class = "form-control control-group" })
                             <label>Password</label>
                             @Html.Password("Password", "Admin", new { @class = "form-control control-group" })
-
                             <span>Remember me @Html.CheckBox("Remember me", false, new { @class = " control-group" })</span>
-                            
-
                             <button type="submit" class="shopBtn btn-block">Sign in</button>
-
-
                         }
-                        
                     </div>
                 </div>
             </div>
         </div>
-
-
-
-
-
         <div id="carouselExampleIndicators" class="carousel slide d-none d-lg-block" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -122,30 +108,7 @@
                 </div>
                 <img src="~/Content/images/de33af5deb444f58f3420acfb716a563-christmas-santa-greeting-card-maker.jpg" class="img-fluid wow jackInTheBox d-none d-lg-block" title="HO HO HO!" alt="Responsive image">
                 <!-- Contact \ Embedded Google Map -->
-                <div class="card rounded-0 d-none d-lg-block">
-                    <h5 class="card-header">Contact Details</h5>
-                    <div class="card-body">
-                        <p>
-                            Santa Claus Main Post Office
-                            <br>FI-96930 Arctic Circle
-                            <br>Lapland, Finland
-                            <br>
-                        </p>
-                        <p>
-                            <abbr title="Phone">P</abbr>: 8 (915) 387-08-27
-                        </p>
-                        <p>
-                            <abbr title="Email">E</abbr>:
-                            <a href="mailto:mister.savateev@gmail.com">
-                                mister.savateev@gmail
-                            </a>
-                        </p>
-                        <p>
-                            <abbr title="Hours">H</abbr>: Monday - Friday: 9:00 AM to 5:00 PM
-                        </p>
-                        <iframe width="100%" height="200px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1550669.740668759!2d25.729533542075!3d66.28943175295784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x442b4e7fc37edcad%3A0xd701fa06de6e68e1!2zSm91bHVwdWtpbiBww6TDpHBvc3Rp!5e0!3m2!1sfi!2sfi!4v1508330455382"></iframe>
-                    </div>
-                </div>
+                @Html.Partial("Contacts")
             </div>
             <!-- /.col-lg-2 -->
             <div class="col-lg-9">
@@ -164,11 +127,12 @@
             <p class="m-0 text-center text-white">Copyright &copy; My Website 2017</p>
         </div>
     </footer>
-    <script src="~/Content/bootstrap_temp/vendor/jquery/jquery.min.js"></script>
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-    <script src="~/Content/bootstrap_temp/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="~/Scripts/fontawesome-all.min.js"></script>
+    @Scripts.Render("~/bundleScripts")
+    @*<script src="~/Content/bootstrap_temp/vendor/jquery/jquery.min.js"></script>
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+        <script src="~/Content/bootstrap_temp/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="~/Scripts/fontawesome-all.min.js"></script>*@
     <script>
         $("div.card.h-100").hover(function () {
             $(this).addClass("border border-primary");
